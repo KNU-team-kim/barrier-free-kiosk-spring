@@ -25,7 +25,7 @@ public class Address {
                 address.sigungu(),
                 address.roadName(),
                 address.buildingNumber(),
-                address.detailAddress()
+                address.detail()
         );
     }
 }

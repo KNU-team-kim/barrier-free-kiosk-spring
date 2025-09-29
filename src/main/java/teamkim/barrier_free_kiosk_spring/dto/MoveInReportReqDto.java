@@ -17,6 +17,6 @@ public record MoveInReportReqDto(
             @NotBlank String sigungu,
             @NotBlank String roadName,
             @NotNull Integer buildingNumber,
-            @NotNull String detailAddress
+            @NotNull String detail
     ) {}
 }
