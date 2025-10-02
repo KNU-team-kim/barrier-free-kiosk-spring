@@ -11,6 +11,11 @@ import teamkim.barrier_free_kiosk_spring.exception.CustomException;
 import teamkim.barrier_free_kiosk_spring.exception.ExceptionCode;
 import teamkim.barrier_free_kiosk_spring.repository.LogRepository;
 import teamkim.barrier_free_kiosk_spring.repository.UserRepository;
+import teamkim.barrier_free_kiosk_spring.dto.ResidentRegistrationReqDto;
+import teamkim.barrier_free_kiosk_spring.entity.ResidentRegistrationLog;
+import teamkim.barrier_free_kiosk_spring.exception.ExceptionCode;
+import teamkim.barrier_free_kiosk_spring.repository.LogRepository;
+import teamkim.barrier_free_kiosk_spring.repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -28,5 +33,17 @@ public class KioskService {
         MoveInReportLog moveInReportLog = logRepository.save(MoveInReportLog.from(moveInReportReqDto, user));
 
         return moveInReportLog.getId();
+    }
+
+    @Transactional
+    public Long issueResidentRegistration(ResidentRegistrationReqDto dto) {
+        User user = userRepository.findByPhoneNumberAndName(dto.phoneNumber(), dto.name())
+                .orElseThrow(() -> new CustomException(ExceptionCode.USER_NOT_FOUND));
+
+        ResidentRegistrationLog log = ResidentRegistrationLog.from(dto, user);
+
+        logRepository.save(log);
+
+        return log.getId();
     }
 }
