@@ -3,6 +3,7 @@ package teamkim.barrier_free_kiosk_spring.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import teamkim.barrier_free_kiosk_spring.dto.CheckPhoneNumberReqDto;
 import teamkim.barrier_free_kiosk_spring.dto.MoveInReportReqDto;
 import teamkim.barrier_free_kiosk_spring.entity.Address;
 import teamkim.barrier_free_kiosk_spring.entity.MoveInReportLog;
@@ -13,9 +14,6 @@ import teamkim.barrier_free_kiosk_spring.repository.LogRepository;
 import teamkim.barrier_free_kiosk_spring.repository.UserRepository;
 import teamkim.barrier_free_kiosk_spring.dto.ResidentRegistrationReqDto;
 import teamkim.barrier_free_kiosk_spring.entity.ResidentRegistrationLog;
-import teamkim.barrier_free_kiosk_spring.exception.ExceptionCode;
-import teamkim.barrier_free_kiosk_spring.repository.LogRepository;
-import teamkim.barrier_free_kiosk_spring.repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -45,5 +43,9 @@ public class KioskService {
         logRepository.save(log);
 
         return log.getId();
+    }
+
+    public Boolean checkPhoneNumber(String phoneNumber) {
+        return userRepository.findByPhoneNumber(phoneNumber).isPresent();
     }
 }
