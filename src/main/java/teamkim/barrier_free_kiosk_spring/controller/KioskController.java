@@ -2,16 +2,16 @@ package teamkim.barrier_free_kiosk_spring.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 import teamkim.barrier_free_kiosk_spring.dto.MoveInReportReqDto;
 import teamkim.barrier_free_kiosk_spring.service.KioskService;
 import teamkim.barrier_free_kiosk_spring.dto.ResidentRegistrationReqDto;
 
+@Validated
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -28,5 +28,11 @@ public class KioskController {
     @Operation(summary = "주민등록초본 발급 API")
     public ResponseEntity<Long> postResidentRegistration(@Valid @RequestBody ResidentRegistrationReqDto residentRegistrationReqDto) {
         return ResponseEntity.ok(kioskService.issueResidentRegistration(residentRegistrationReqDto));
+    }
+
+    @GetMapping("/move-in")
+    @Operation(summary = "전화번호 유효성 체크 API")
+    public ResponseEntity<Boolean> getPhoneNumberValidity(@RequestParam @NotBlank String phoneNumber) {
+        return ResponseEntity.ok(kioskService.checkPhoneNumber(phoneNumber));
     }
 }
