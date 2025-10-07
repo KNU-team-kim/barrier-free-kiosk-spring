@@ -3,7 +3,6 @@ package teamkim.barrier_free_kiosk_spring.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import teamkim.barrier_free_kiosk_spring.dto.CheckPhoneNumberReqDto;
 import teamkim.barrier_free_kiosk_spring.dto.MoveInReportReqDto;
 import teamkim.barrier_free_kiosk_spring.entity.Address;
 import teamkim.barrier_free_kiosk_spring.entity.MoveInReportLog;
