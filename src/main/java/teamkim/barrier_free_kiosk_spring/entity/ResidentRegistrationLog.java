@@ -5,7 +5,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import teamkim.barrier_free_kiosk_spring.dto.ResidentRegistrationReqDto;
+import teamkim.barrier_free_kiosk_spring.dto.request.ResidentRegistrationReqDto;
 import teamkim.barrier_free_kiosk_spring.enums.RegistrationCopyType;
 
 @Entity

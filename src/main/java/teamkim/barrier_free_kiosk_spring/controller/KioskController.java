@@ -7,9 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import teamkim.barrier_free_kiosk_spring.dto.MoveInReportReqDto;
+import teamkim.barrier_free_kiosk_spring.dto.request.MoveInReportReqDto;
 import teamkim.barrier_free_kiosk_spring.service.KioskService;
-import teamkim.barrier_free_kiosk_spring.dto.ResidentRegistrationReqDto;
+import teamkim.barrier_free_kiosk_spring.dto.request.ResidentRegistrationReqDto;
 
 @Validated
 @RestController
