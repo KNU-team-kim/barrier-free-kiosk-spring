@@ -6,8 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import teamkim.barrier_free_kiosk_spring.enums.RegistrationCopyType;
 
 public record ResidentRegistrationReqDto(
-        @NotBlank String name,
-        @NotBlank String phoneNumber,
+        @NotBlank String registrationNumber,
         @NotNull RegistrationCopyType type,
         @NotNull @Min(1) Integer copyNumber
 ) {
