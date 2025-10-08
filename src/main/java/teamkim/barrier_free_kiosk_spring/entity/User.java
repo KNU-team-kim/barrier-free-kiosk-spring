@@ -1,9 +1,11 @@
 package teamkim.barrier_free_kiosk_spring.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import teamkim.barrier_free_kiosk_spring.enums.Gender;
 
 @Entity
+@Getter
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

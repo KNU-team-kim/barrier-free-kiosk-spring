@@ -2,9 +2,11 @@ package teamkim.barrier_free_kiosk_spring.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import teamkim.barrier_free_kiosk_spring.dto.request.MoveInReportReqDto;
 
+@Getter
 @Embeddable
 @AllArgsConstructor
 @NoArgsConstructor

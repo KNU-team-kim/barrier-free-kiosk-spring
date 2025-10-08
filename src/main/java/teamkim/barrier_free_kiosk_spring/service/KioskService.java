@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import teamkim.barrier_free_kiosk_spring.dto.request.MoveInReportReqDto;
+import teamkim.barrier_free_kiosk_spring.dto.response.AddressGetResDto;
 import teamkim.barrier_free_kiosk_spring.entity.Address;
 import teamkim.barrier_free_kiosk_spring.entity.MoveInReportLog;
 import teamkim.barrier_free_kiosk_spring.entity.User;
@@ -44,5 +45,13 @@ public class KioskService {
 
     public Boolean checkPhoneNumber(String phoneNumber) {
         return userRepository.findByPhoneNumber(phoneNumber).isPresent();
+    }
+
+    public AddressGetResDto retrieveAddress(String name, String phoneNumber) {
+        return AddressGetResDto.from(
+                userRepository.findByPhoneNumberAndName(phoneNumber, name)
+                        .orElseThrow(() -> new CustomException(ExceptionCode.USER_NOT_FOUND))
+                        .getAddress()
+        );
     }
 }
