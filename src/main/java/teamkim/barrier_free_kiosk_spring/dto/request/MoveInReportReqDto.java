@@ -1,4 +1,4 @@
-package teamkim.barrier_free_kiosk_spring.dto;
+package teamkim.barrier_free_kiosk_spring.dto.request;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;

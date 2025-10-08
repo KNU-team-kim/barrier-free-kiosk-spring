@@ -1,4 +1,4 @@
-INSERT INTO user
+INSERT IGNORE INTO user
 (name, phone_number, registration_number, gender, sido, sigungu, road_name, building_number, detail_address)
 VALUES
 ('장다윤1', '010-4171-7596', '010323-1234567', 'FEMALE', '대구광역시', '북구', '구암로', 21, '101동'),

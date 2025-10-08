@@ -7,9 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import teamkim.barrier_free_kiosk_spring.dto.MoveInReportReqDto;
+import teamkim.barrier_free_kiosk_spring.dto.request.MoveInReportReqDto;
+import teamkim.barrier_free_kiosk_spring.dto.response.AddressGetResDto;
 import teamkim.barrier_free_kiosk_spring.service.KioskService;
-import teamkim.barrier_free_kiosk_spring.dto.ResidentRegistrationReqDto;
+import teamkim.barrier_free_kiosk_spring.dto.request.ResidentRegistrationReqDto;
 
 @Validated
 @RestController
@@ -30,9 +31,15 @@ public class KioskController {
         return ResponseEntity.ok(kioskService.issueResidentRegistration(residentRegistrationReqDto));
     }
 
-    @GetMapping("/move-in")
+    @GetMapping("/move-in/check")
     @Operation(summary = "전화번호 유효성 체크 API")
     public ResponseEntity<Boolean> getPhoneNumberValidity(@RequestParam @NotBlank String phoneNumber) {
         return ResponseEntity.ok(kioskService.checkPhoneNumber(phoneNumber));
+    }
+
+    @GetMapping("/move-in/address")
+    @Operation(summary = "주소 검색 API")
+    public ResponseEntity<AddressGetResDto> getAddress(@RequestParam @NotBlank String name, @RequestParam @NotBlank String phoneNumber) {
+        return ResponseEntity.ok(kioskService.retrieveAddress(name, phoneNumber));
     }
 }
