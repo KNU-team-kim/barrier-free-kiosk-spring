@@ -34,13 +34,11 @@ public class KioskService {
 
     @Transactional
     public Long issueResidentRegistration(ResidentRegistrationReqDto dto) {
-        User user = userRepository.findByPhoneNumberAndName(dto.phoneNumber(), dto.name())
+        User user = userRepository.findByRegistrationNumber(dto.registrationNumber())
                 .orElseThrow(() -> new CustomException(ExceptionCode.USER_NOT_FOUND));
 
         ResidentRegistrationLog log = ResidentRegistrationLog.from(dto, user);
-
         logRepository.save(log);
-
         return log.getId();
     }
 
