@@ -43,7 +43,7 @@ public class MoveInReportLog extends Log {
     public static MoveInReportLog from(MoveInReportReqDto moveInReportReqDto, User user) {
         return new MoveInReportLog(
                 user,
-                Address.from(moveInReportReqDto.oldAddress()),
+                user.getAddress(),
                 Address.from(moveInReportReqDto.newAddress()),
                 moveInReportReqDto.reason()
         );

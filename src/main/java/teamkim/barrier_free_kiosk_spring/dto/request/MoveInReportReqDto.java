@@ -9,7 +9,6 @@ public record MoveInReportReqDto(
         @NotBlank String name,
         @NotBlank String phoneNumber,
         @NotNull MoveInReason reason,
-        @NotNull @Valid Address oldAddress,
         @NotNull @Valid Address newAddress
 ) {
     public record Address(

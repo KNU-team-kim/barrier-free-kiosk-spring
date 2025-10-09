@@ -26,9 +26,8 @@ public class KioskService {
         User user = userRepository.findByPhoneNumberAndName(moveInReportReqDto.phoneNumber(), moveInReportReqDto.name())
                 .orElseThrow(() -> new CustomException(ExceptionCode.USER_NOT_FOUND));
 
-        user.updateAddress(Address.from(moveInReportReqDto.newAddress()));
-
         MoveInReportLog moveInReportLog = logRepository.save(MoveInReportLog.from(moveInReportReqDto, user));
+        user.updateAddress(Address.from(moveInReportReqDto.newAddress()));
 
         return moveInReportLog.getId();
     }
