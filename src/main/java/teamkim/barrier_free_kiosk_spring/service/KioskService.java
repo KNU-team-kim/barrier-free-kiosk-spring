@@ -53,4 +53,8 @@ public class KioskService {
                         .getAddress()
         );
     }
+
+    public Boolean checkRegistrationNumber(String registrationNumber) {
+        return userRepository.findByRegistrationNumber(registrationNumber).isPresent();
+    }
 }

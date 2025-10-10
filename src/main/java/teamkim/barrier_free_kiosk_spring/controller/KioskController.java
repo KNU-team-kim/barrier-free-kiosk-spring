@@ -42,4 +42,10 @@ public class KioskController {
     public ResponseEntity<AddressGetResDto> getAddress(@RequestParam @NotBlank String name, @RequestParam @NotBlank String phoneNumber) {
         return ResponseEntity.ok(kioskService.retrieveAddress(name, phoneNumber));
     }
+
+    @GetMapping("/resident-registration/check")
+    @Operation(summary = "주민등록번호 유효성 체크 API")
+    public ResponseEntity<Boolean> getRegistrationNumberValidity(@RequestParam @NotBlank String registrationNumber) {
+        return ResponseEntity.ok(kioskService.checkRegistrationNumber(registrationNumber));
+    }
 }
