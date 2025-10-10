@@ -33,8 +33,8 @@ public class KioskController {
 
     @GetMapping("/move-in/check")
     @Operation(summary = "전화번호 유효성 체크 API")
-    public ResponseEntity<Boolean> getPhoneNumberValidity(@RequestParam @NotBlank String phoneNumber) {
-        return ResponseEntity.ok(kioskService.checkPhoneNumber(phoneNumber));
+    public ResponseEntity<Boolean> getPhoneNumberValidity(@RequestParam @NotBlank String phoneNumber, @RequestParam @NotBlank String name) {
+        return ResponseEntity.ok(kioskService.checkPhoneNumberAndName(phoneNumber, name));
     }
 
     @GetMapping("/move-in/address")
