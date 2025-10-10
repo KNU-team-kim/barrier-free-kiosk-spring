@@ -42,8 +42,8 @@ public class KioskService {
         return log.getId();
     }
 
-    public Boolean checkPhoneNumber(String phoneNumber) {
-        return userRepository.findByPhoneNumber(phoneNumber).isPresent();
+    public Boolean checkPhoneNumberAndName(String phoneNumber, String name) {
+        return userRepository.findByPhoneNumberAndName(phoneNumber, name).isPresent();
     }
 
     public AddressGetResDto retrieveAddress(String name, String phoneNumber) {
