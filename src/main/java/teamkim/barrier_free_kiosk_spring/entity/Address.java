@@ -17,7 +17,9 @@ public class Address {
 
     private String roadName;
 
-    private Integer buildingNumber;
+    private Integer mainBuildingNumber;
+
+    private Integer subBuildingNumber;
 
     private String detailAddress;
 
@@ -26,7 +28,8 @@ public class Address {
                 address.sido(),
                 address.sigungu(),
                 address.roadName(),
-                address.buildingNumber(),
+                address.mainBuildingNumber(),
+                address.subBuildingNumber(),
                 address.detail()
         );
     }

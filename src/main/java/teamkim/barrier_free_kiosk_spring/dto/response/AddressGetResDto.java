@@ -6,7 +6,8 @@ public record AddressGetResDto(
         String sido,
         String sigungu,
         String roadName,
-        Integer buildingNumber,
+        Integer mainBuildingNumber,
+        Integer subBuildingNumber,
         String detail
 ) {
 
@@ -15,7 +16,8 @@ public record AddressGetResDto(
                 address.getSido(),
                 address.getSigungu(),
                 address.getRoadName(),
-                address.getBuildingNumber(),
+                address.getMainBuildingNumber(),
+                address.getSubBuildingNumber(),
                 address.getDetailAddress()
         );
     }
