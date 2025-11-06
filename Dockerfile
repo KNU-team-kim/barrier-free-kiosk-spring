@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk
+FROM amazoncorretto:17-alpine
 
 ARG JAR_FILE=build/libs/*-SNAPSHOT.jar
 
