@@ -15,7 +15,8 @@ public class MoveInReportLog extends Log {
             @AttributeOverride(name = "sido", column = @Column(name = "old_sido")),
             @AttributeOverride(name = "sigungu", column = @Column(name = "old_sigungu")),
             @AttributeOverride(name = "roadName", column = @Column(name = "old_road_name")),
-            @AttributeOverride(name = "buildingNumber", column = @Column(name = "old_building_number")),
+            @AttributeOverride(name = "mainBuildingNumber", column = @Column(name = "old_main_building_number")),
+            @AttributeOverride(name = "subBuildingNumber", column = @Column(name = "old_sub_building_number")),
             @AttributeOverride(name = "detailAddress", column = @Column(name = "old_detail_address"))
     })
     private Address oldAddress;
@@ -25,7 +26,8 @@ public class MoveInReportLog extends Log {
             @AttributeOverride(name = "sido", column = @Column(name = "new_sido")),
             @AttributeOverride(name = "sigungu", column = @Column(name = "new_sigungu")),
             @AttributeOverride(name = "roadName", column = @Column(name = "new_road_name")),
-            @AttributeOverride(name = "buildingNumber", column = @Column(name = "new_building_number")),
+            @AttributeOverride(name = "mainBuildingNumber", column = @Column(name = "new_main_building_number")),
+            @AttributeOverride(name = "subBuildingNumber", column = @Column(name = "new_sub_building_number")),
             @AttributeOverride(name = "detailAddress", column = @Column(name = "new_detail_address"))
     })
     private Address newAddress;
